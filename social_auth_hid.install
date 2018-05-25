@@ -20,11 +20,11 @@ function social_auth_hid_requirements($phase) {
   $requirements = [];
 
   // Social API should be installed at this point in order to check library.
-  \Drupal::service('module_installer')->install(['social_api']);
+  /*\Drupal::service('module_installer')->install(['social_api']);
 
   if ($phase == 'install') {
     $requirements = SocialApiImplementerInstaller::checkLibrary('social_auth_hid', 'Social Auth Humanitarian ID', 'un-ocha/oauth2-hid', 2.0, 3.0);
-  }
+  }*/
 
   return $requirements;
 
@@ -43,4 +43,3 @@ function social_auth_hid_install() {
 function social_auth_hid_uninstall() {
   SocialAuthController::deleteLoginButtonSettings('social_auth_hid');
 }
-
