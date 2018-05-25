@@ -139,9 +139,11 @@ class HidAuth extends NetworkBase implements HidAuthInterface {
 
     if ($this->validateConfig($settings)) {
       // All these settings are mandatory.
+      $redirect_url = \Drupal::request()->getSchemeAndHttpHost() . '/user/login/hid/callback';
       $league_settings = [
         'clientId' => $settings->getClientId(),
         'clientSecret' => $settings->getClientSecret(),
+        'redirectUri' => $redirect_url,
       ];
 
       // Proxy configuration data for outward proxy.
